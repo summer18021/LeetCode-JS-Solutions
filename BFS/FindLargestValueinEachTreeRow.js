@@ -25,18 +25,18 @@ Output: [1, 3, 9]
  * @return {number[]}
  */
 var largestValues = function(root) {
-    var res=[];
-    if(root===null) return [];
-    var queue=[]; // store nodes in each level
+    var res = [];
+    if (root === null) return [];
+    var queue = []; // store nodes in each level
     queue.push(root);
-    while(queue.length!==0){
-        let size=queue.length;
-        let level=[]; // store node value of each level
-        for(let i=0;i<size;i++){
-            let temp=queue.shift();
+    while (queue.length !== 0) {
+        let size = queue.length;
+        let level = []; // store node value of each level
+        for (let i = 0; i < size; i++) {
+            let temp = queue.shift();
             level.push(temp.val);
-            if(temp.left!==null) queue.push(temp.left);
-            if(temp.right!==null) queue.push(temp.right);
+            if (temp.left !== null) queue.push(temp.left);
+            if (temp.right !== null) queue.push(temp.right);
         }
         let largest = helper(level);
         res.push(largest);
@@ -44,11 +44,11 @@ var largestValues = function(root) {
     return res;
 };
 
-var helper= function(arry){
-    var len=arry.length;
-    var large=arry[0];
-    for(let i=1;i<len;i++){
-        if(arry[i]>large) large=arry[i];
+var helper = function(arry) {
+    var len = arry.length;
+    var large = arry[0];
+    for (let i = 1; i < len; i++) {
+        if (arry[i] > large) large = arry[i];
     }
     return large;
 };
