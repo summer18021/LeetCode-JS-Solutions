@@ -38,16 +38,16 @@ Note: You may assume the tree (i.e., the given root node) is not NULL.
  * @return {number}
  */
 var findBottomLeftValue = function(root) {
-    var queue=[]; //store nodes in each level 
+    var queue = []; //store nodes in each level 
     queue.push(root);
-    var res=root.val;
-    while(queue.length!==0){
-        let len=queue.length;
-        for(let i=0;i<len;i++){
-            let temp=queue.shift();
-            if(i===0) res=temp.val; //use res to store the first node value of each level
-            if(temp.left!==null) queue.push(temp.left);
-            if(temp.right!==null) queue.push(temp.right);
+    var res = root.val;
+    while (queue.length !== 0) {
+        let len = queue.length;
+        for (let i = 0; i < len; i++) {
+            let temp = queue.shift();
+            if (i === 0) res = temp.val; //use res to store the first node value of each level
+            if (temp.left !== null) queue.push(temp.left);
+            if (temp.right !== null) queue.push(temp.right);
         }
     }
     return res;
