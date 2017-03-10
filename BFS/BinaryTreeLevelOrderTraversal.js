@@ -27,20 +27,20 @@ return its level order traversal as:
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-    var res=[];
-    if(root===null) return res;
-    var queue=[];
+    var res = [];
+    if (root === null) return res;
+    var queue = [];
     queue.push(root); // use queue[] to store each level node
-    while(queue.length!==0){
-       let size=queue.length; 
-       let level=[]; //use level[] to store each level's node value
-       for(let i=0;i<size;i++){
-           let temp=queue.shift();
-           level.push(temp.val);
-           if(temp.left!==null) queue.push(temp.left);
-           if(temp.right!==null) queue.push(temp.right);
-       }
-       res.push(level);
+    while (queue.length !== 0) {
+        let size = queue.length; 
+        let level = []; //use level[] to store each level's node value
+        for (let i = 0; i < size; i++) {
+            let temp = queue.shift();
+            level.push(temp.val);
+            if (temp.left !== null) queue.push(temp.left);
+            if (temp.right !== null) queue.push(temp.right);
+        }
+        res.push(level);
     }
     return res;
 };
