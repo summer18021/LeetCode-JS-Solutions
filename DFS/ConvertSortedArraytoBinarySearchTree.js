@@ -13,14 +13,14 @@ Given an array where elements are sorted in ascending order, convert it to a hei
  * @return {TreeNode}
  */
 var sortedArrayToBST = function(nums) {
-   if(nums===null) return null;
-   return buildTree(nums,0,nums.length-1);
+   if (nums === null) return null;
+   return buildTree(nums, 0, nums.length-1);
 };
-var buildTree = function(nums,start,end){
-   if(start>end) return null;
-   let mid = parseInt((start+end)/2);
+var buildTree = function(nums, start, end) {
+   if (start > end) return null;
+   let mid = parseInt((start + end) / 2);
    let node = new TreeNode(nums[mid]);
-   node.left = buildTree(nums,start,mid-1);
-   node.right = buildTree(nums,mid+1,end); 
+   node.left = buildTree(nums, start, mid - 1);
+   node.right = buildTree(nums, mid + 1, end); 
    return node;
 };
