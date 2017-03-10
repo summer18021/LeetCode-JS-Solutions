@@ -25,12 +25,12 @@ All root-to-leaf paths are:
  * @return {string[]}
  */
 var binaryTreePaths = function(root) {
-    var res=[];
-    if(root!==null) helper(root,"",res);
+    var res = [];
+    if (root !== null) helper(root, "", res);
     return res;
 };
-var helper = function(root,path,res){
-   if(root.left===null && root.right===null) res.push(path+root.val);
-   if(root.left!==null) helper(root.left,path+root.val+"->",res);
-   if(root.right!==null) helper(root.right,path+root.val+"->",res);
+var helper = function(root,path,res) {
+   if (root.left === null && root.right === null) res.push(path+root.val);
+   if (root.left !== null) helper(root.left, path+root.val+"->", res);
+   if (root.right !== null) helper(root.right, path+root.val+"->", res);
 };
