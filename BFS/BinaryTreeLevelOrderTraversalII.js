@@ -27,18 +27,18 @@ return its bottom-up level order traversal as:
  * @return {number[][]}
  */
 var levelOrderBottom = function(root) {
-    var res=[];
-    if(root===null) return res;
-    var queue=[];
+    var res = [];
+    if (root === null) return res;
+    var queue = [];
     queue.push(root);
-    while(queue.length!==0){
-        let level=[];
-        let size=queue.length;
-        for(let i=0;i<size;i++){
-            let temp=queue.shift();
+    while (queue.length !== 0) {
+        let level = [];
+        let size = queue.length;
+        for (let i = 0; i < size; i++){
+            let temp = queue.shift();
             level.push(temp.val);
-            if(temp.left!==null) queue.push(temp.left);
-            if(temp.right!==null) queue.push(temp.right);
+            if (temp.left !== null) queue.push(temp.left);
+            if (temp.right !== null) queue.push(temp.right);
         }
         res.push(level);
     }
