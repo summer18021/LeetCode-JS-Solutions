@@ -24,28 +24,28 @@ Answer: 3
  */
 var numIslands = function(grid) {
     // it was '1' not 1 
-    var x=grid.length;
-    if(x===0) return 0;  //if x===0, y cannot be calculated!!!
-    var y=grid[0].length;
-    if(y===0) return 0;
-    var count=0;
-    for(let i=0;i<x;i++){
-      for(let j=0;j<y;j++){
-         if(grid[i][j]==='1'){
-             dfs(grid,i,j);
+    var x = grid.length;
+    if (x === 0) return 0;  //if x===0, y cannot be calculated!!!
+    var y = grid[0].length;
+    if (y === 0) return 0;
+    var count = 0;
+    for (let i = 0; i < x; i++) {
+      for (let j = 0; j < y; j++) {
+         if (grid[i][j] === '1') {
+             dfs(grid, i, j);
              count++;
          }  
       } 
     }
     return count;
 };
-var dfs = function(grid,i,j){
-    if(i<0 || j<0 || i>=grid.length || j>=grid[0].length || grid[i][j]==='0') return;
-    if(grid[i][j]==='1'){
-         grid[i][j]='0';
-         dfs(grid,i+1,j);
-         dfs(grid,i-1,j);
-         dfs(grid,i,j-1);
-         dfs(grid,i,j+1);
+var dfs = function(grid, i, j) {
+    if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] === '0') return;
+    if (grid[i][j] === '1') {
+         grid[i][j] = '0';
+         dfs(grid, i + 1, j);
+         dfs(grid, i - 1, j);
+         dfs(grid, i, j - 1);
+         dfs(grid, i, j + 1);
     }
 };
