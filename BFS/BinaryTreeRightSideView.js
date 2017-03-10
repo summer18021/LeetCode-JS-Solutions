@@ -23,13 +23,13 @@ You should return [1, 3, 4].
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    var result=[];
-    helper(root,result,0);
+    var result = [];
+    helper(root, result, 0);
     return result;
 };
-var helper = function(node, result,level){
-    if(node===null) return;
-    if(result.length===level) result.push(node.val);
-    helper(node.right, result, level+1);
-    helper(node.left, result, level+1);
+var helper = function(node, result, level) {
+    if (node === null) return;
+    if (result.length === level) result.push(node.val);
+    helper(node.right, result, level + 1);
+    helper(node.left, result, level + 1);
 };
