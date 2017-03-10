@@ -26,7 +26,7 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
  * @return {boolean}
  */
 var hasPathSum = function(root, sum) {
-    if(root===null) return false;
-    if(root.left===null && root.right===null && sum-root.val===0) return true;
-    return hasPathSum(root.left, sum-root.val)||hasPathSum(root.right, sum-root.val);
+    if (root === null) return false;
+    if (root.left === null && root.right === null && sum-root.val === 0) return true;
+    return hasPathSum(root.left, sum-root.val) || hasPathSum(root.right, sum-root.val);
 };
