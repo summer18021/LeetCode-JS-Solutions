@@ -28,33 +28,33 @@ return its zigzag level order traversal as:
  * @return {number[][]}
  */
 var zigzagLevelOrder = function(root) {
-    if(root===null) return [];
-    var res=[];
-    var queue=[]; //to store node in each level
+    if (root === null) return [];
+    var res = [];
+    var queue = []; //to store node in each level
     queue.push(root);
-    var flag=true;
-    while(queue.length!==0){
-        let level=[]; //to store node value in each level
-        let size=queue.length;
+    var flag = true;
+    while (queue.length !== 0) {
+        let level = []; //to store node value in each level
+        let size = queue.length;
         
-            if(flag){
-                for(let i=0;i<size;i++){
-                let temp=queue.shift();
+            if (flag) {
+                for (let i = 0; i < size; i++) {
+                let temp = queue.shift();
                 level.push(temp.val);  //push()
-                if(temp.left!==null) queue.push(temp.left);
-                if(temp.right!==null) queue.push(temp.right);
+                if (temp.left !== null) queue.push(temp.left);
+                if (temp.right !== null) queue.push(temp.right);
                 }
-            }else{
-                for(let i=0;i<size;i++){
-                let temp=queue.shift();
+            } else {
+                for (let i = 0; i < size; i++) {
+                let temp = queue.shift();
                 level.unshift(temp.val);   //unshift()
-                if(temp.left!==null) queue.push(temp.left);
-                if(temp.right!==null) queue.push(temp.right);
+                if (temp.left !== null) queue.push(temp.left);
+                if (temp.right !== null) queue.push(temp.right);
                 }
             }
         
         res.push(level);
-        flag=!flag;
+        flag = !flag;
     }
     return res;
 };
