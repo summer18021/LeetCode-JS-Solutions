@@ -13,10 +13,12 @@ Given an array where elements are sorted in ascending order, convert it to a hei
  * @param {number[]} nums
  * @return {TreeNode}
  */
+
 var sortedArrayToBST = function(nums) {
     if (nums === null) return null;
     return buildTree(nums, 0, nums.length - 1);
 };
+
 var buildTree = function(nums, start, end) {
     if (start > end) return null;
     let mid = parseInt((start + end) / 2);
